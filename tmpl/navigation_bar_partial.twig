@@ -1,0 +1,14 @@
+<div class="spacer"></div>
+<div class="nav-bar">
+    {% if previous != null %}
+        <a class="nav-arrow-left" href="{{ previous|url_encode }}">&laquo;</a><!--
+    {% else %}
+        <!--
+    {% endif %}
+    --><span class="nav-info">Question {{ question.index }}/{{ numberOfQuestions }}</span><!--
+    {% if next != null %}
+        --><a class="nav-arrow-right" href="{{ next|url_encode }}">&raquo;</a>
+    {% else %}
+        -->
+    {% endif %}
+</div>

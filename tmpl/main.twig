@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark light">
+    <title>PHP Quiz{{ question is same as(null) ? '' : ' - ' ~ question.title }}</title>
+    <script>
+        let storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        if (storedTheme) {
+            document.documentElement.setAttribute('data-theme', storedTheme)
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/code-styles.css">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/site.webmanifest">
+</head>
+<body>
+<div id="main_container">
+    <div class="header">
+        <div id="logo">PHP Quiz</div>
+        <div id="burger"></div>
+        <div id="toggle">
+            <button id="theme-toggle" class="" type="button">
+                <svg class="d-block-light d-none" xmlns="http://www.w3.org/2000/svg" style="width: 1rem; height: 1rem;"
+                     viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg class="d-block-dark d-none" xmlns="http://www.w3.org/2000/svg" style="width: 1rem; height: 1rem;"
+                     viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="menu_column">
+        <ul id="menu_main">
+            {% for category in categories %}
+                <li id="{{ category.id }}">
+                    <div class="menuitem open-submenu"><a href="#">{{ category.title }}</a>
+                    </div>
+                    <ul class="menu_sub"
+                        style="{{ question != null and category.id == question.category.id ? '' : 'display:none' }}">
+                        {% for item in category.questions %}
+                            <li id="m{{ item.id }}"
+                                class="{{ question != null and item.id == question.id ? 'menuitem selected' : 'menuitem' }}"
+                            ><a class="nav_menu"
+                                href="{{ item.id|url_encode }}">{{ item.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="content_column">
+        <div id="question_con" class="question_container">
+            {% if question != null %}
+                {% include 'question_partial.twig' %}
+                {% include 'navigation_bar_partial.twig' %}
+            {% else %}
+                {% include 'welcome_partial.twig' %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+<script src="index.bundle.js" defer></script>
+</body>
+</html>

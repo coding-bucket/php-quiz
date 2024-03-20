@@ -1,0 +1,7 @@
+/.idea/
+/.psalm-cache/
+/_coverage/
+/node_modules/
+/vendor/
+/.php-cs-fixer.cache
+/.phpunit.result.cache

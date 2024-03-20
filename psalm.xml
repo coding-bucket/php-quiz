@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<psalm
+    errorLevel="1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    findUnusedBaselineEntry="true"
+    strictBinaryOperands="true"
+    findUnusedVariablesAndParams="true"
+    cacheDirectory="./.psalm-cache"
+>
+    <projectFiles>
+        <directory name="src"/>
+        <directory name="tests"/>
+        <file name="public/index.php"/>
+        <file name="bin/createstatic.php"/>
+        <ignoreFiles>
+            <directory name="vendor"/>
+        </ignoreFiles>
+    </projectFiles>
+    <issueHandlers>
+        <MoreSpecificReturnType errorLevel="suppress"/>
+        <InvalidStringClass errorLevel="suppress"/>
+    </issueHandlers>
+    <plugins>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
+    </plugins>
+    <globals>
+        <var name="_SERVER" type="array{SERVER_PROTOCOL: string, REQUEST_METHOD: string, REQUEST_URI: string}"/>
+    </globals>
+</psalm>

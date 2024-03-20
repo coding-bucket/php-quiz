@@ -1,0 +1,6 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="32px" height="32px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 22L24 22" stroke="#eee" stroke-width="2" stroke-linecap="round"/>
+    <path d="M8 16L24 16" stroke="#eee" stroke-width="2" stroke-linecap="round"/>
+    <path d="M8 10L24 10" stroke="#eee" stroke-width="2" stroke-linecap="round"/>
+</svg>

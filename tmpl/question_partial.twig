@@ -1,0 +1,16 @@
+<h1>{{ question_card.header|raw }}</h1>
+{{ question_card.question|raw }}
+<a href="" id="open-drawer" data-opened="0">Solution</a>
+<div class="tags-wrap" style="display: none;">
+    {{ question_card.answer|raw }}
+    {% if question_card.explanation != '' %}
+        {{ question_card.explanation|raw }}
+    {% endif %}
+    {% if question_card.sources != null and question_card.sources|length > 0 %}
+        <p>
+            Source:<br/>
+            {% for link in question_card.sources %}<a class="source" href="https://{{ link }}">{{ link }}</a><br/>{% endfor %}
+        </p>
+    {% endif %}
+</div>
+
