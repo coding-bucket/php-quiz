@@ -3,7 +3,7 @@
 // Callables
 // --
 // A callback is a reference to a function or method that can be called later.
-// List various ways to implement a callback.
+// List various ways to pass a callback as a parameter to a function or method.
 // php
 class A
 {
