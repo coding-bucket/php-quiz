@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark light">
+    <title>PHP Quiz - Reference comparison</title>
+    <script>
+        let storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        if (storedTheme) {
+            document.documentElement.setAttribute('data-theme', storedTheme)
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/code-styles.css">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/site.webmanifest">
+</head>
+<body>
+<div id="main_container">
+    <div class="header">
+        <div id="logo">PHP Quiz</div>
+        <div id="burger"></div>
+        <div id="toggle">
+            <button id="theme-toggle" class="" type="button">
+                <svg class="d-block-light d-none" xmlns="http://www.w3.org/2000/svg" style="width: 1rem; height: 1rem;"
+                     viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg class="d-block-dark d-none" xmlns="http://www.w3.org/2000/svg" style="width: 1rem; height: 1rem;"
+                     viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="menu_column">
+        <ul id="menu_main">
+                            <li id="01">
+                    <div class="menuitem open-submenu"><a href="#">Operators</a>
+                    </div>
+                    <ul class="menu_sub"
+                        style="display:none">
+                                                    <li id="m009"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="009.html">Null coalescing operator</a>
+                            </li>
+                                                    <li id="m010"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="010.html">Shorthand ternary operator</a>
+                            </li>
+                                                    <li id="m011"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="011.html">Null coalescing assignment</a>
+                            </li>
+                                                    <li id="m044"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="044.html">Float multiplication</a>
+                            </li>
+                                                    <li id="m055"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="055.html">Bitwise operators</a>
+                            </li>
+                                                    <li id="m029"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="029.html">Operator precedence</a>
+                            </li>
+                                            </ul>
+                </li>
+                            <li id="02">
+                    <div class="menuitem open-submenu"><a href="#">Arrays</a>
+                    </div>
+                    <ul class="menu_sub"
+                        style="display:none">
+                                                    <li id="m038"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="038.html">Array keys</a>
+                            </li>
+                                                    <li id="m039"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="039.html">Array keys 2</a>
+                            </li>
+                                                    <li id="m099"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="099.html">Array keys 3</a>
+                            </li>
+                                                    <li id="m030"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="030.html">foreach</a>
+                            </li>
+                                                    <li id="m031"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="031.html">foreach 2</a>
+                            </li>
+                                                    <li id="m012"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="012.html">Sorting arrays</a>
+                            </li>
+                                                    <li id="m072"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="072.html">Comparing arrays</a>
+                            </li>
+                                                    <li id="m036"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="036.html">Comparing arrays 2</a>
+                            </li>
+                                                    <li id="m019"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="019.html">Merging arrays</a>
+                            </li>
+                                                    <li id="m047"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="047.html">Array destructuring</a>
+                            </li>
+                                                    <li id="m048"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="048.html">Array destructuring 2</a>
+                            </li>
+                                                    <li id="m071"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="071.html">Adding references</a>
+                            </li>
+                                            </ul>
+                </li>
+                            <li id="03">
+                    <div class="menuitem open-submenu"><a href="#">OOP</a>
+                    </div>
+                    <ul class="menu_sub"
+                        style="display:none">
+                                                    <li id="m024"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="024.html">Abstract classes</a>
+                            </li>
+                                                    <li id="m025"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="025.html">Abstract classes 2</a>
+                            </li>
+                                                    <li id="m026"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="026.html">Private properties</a>
+                            </li>
+                                                    <li id="m028"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="028.html">Protected properties</a>
+                            </li>
+                                                    <li id="m033"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="033.html">Traits</a>
+                            </li>
+                                                    <li id="m034"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="034.html">Traits 2</a>
+                            </li>
+                                                    <li id="m037"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="037.html">Cloning objects</a>
+                            </li>
+                                                    <li id="m049"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="049.html">Magic method __get()</a>
+                            </li>
+                                                    <li id="m057"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="057.html">Static variables</a>
+                            </li>
+                                                    <li id="m058"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="058.html">Static variables 2</a>
+                            </li>
+                                                    <li id="m059"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="059.html">Static variables 3</a>
+                            </li>
+                                                    <li id="m064"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="064.html">OO-Inheritance</a>
+                            </li>
+                                                    <li id="m067"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="067.html">OO-Inheritance 2</a>
+                            </li>
+                                                    <li id="m070"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="070.html">OO-Inheritance 3</a>
+                            </li>
+                                                    <li id="m069"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="069.html">OO-Inheritance 4</a>
+                            </li>
+                                            </ul>
+                </li>
+                            <li id="04">
+                    <div class="menuitem open-submenu"><a href="#">Exceptions</a>
+                    </div>
+                    <ul class="menu_sub"
+                        style="display:none">
+                                                    <li id="m016"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="016.html">Using interfaces</a>
+                            </li>
+                                                    <li id="m017"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="017.html">Throwable</a>
+                            </li>
+                                                    <li id="m032"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="032.html">Previous exceptions</a>
+                            </li>
+                                                    <li id="m052"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="052.html">throw in finally</a>
+                            </li>
+                                                    <li id="m054"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="054.html">return statement 1</a>
+                            </li>
+                                                    <li id="m062"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="062.html">return statement 2</a>
+                            </li>
+                                                    <li id="m065"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="065.html">throw as expression</a>
+                            </li>
+                                            </ul>
+                </li>
+                            <li id="05">
+                    <div class="menuitem open-submenu"><a href="#">Miscellaneous</a>
+                    </div>
+                    <ul class="menu_sub"
+                        style="">
+                                                    <li id="m015"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="015.html">Callables</a>
+                            </li>
+                                                    <li id="m018"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="018.html">Types</a>
+                            </li>
+                                                    <li id="m021"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="021.html">Case sensitivity</a>
+                            </li>
+                                                    <li id="m022"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="022.html">Constants</a>
+                            </li>
+                                                    <li id="m023"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="023.html">Generators</a>
+                            </li>
+                                                    <li id="m035"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="035.html">match</a>
+                            </li>
+                                                    <li id="m043"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="043.html">Traversable and Iterable</a>
+                            </li>
+                                                    <li id="m046"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="046.html">Traversable and Iterable 2</a>
+                            </li>
+                                                    <li id="m045"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="045.html">Iterable</a>
+                            </li>
+                                                    <li id="m056"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="056.html">Integer overflow</a>
+                            </li>
+                                                    <li id="m060"
+                                class="menuitem selected"
+                            ><a class="nav_menu"
+                                href="060.html">Reference comparison</a>
+                            </li>
+                                                    <li id="m068"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="068.html">Anonymous functions</a>
+                            </li>
+                                                    <li id="m066"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="066.html">Arrow functions</a>
+                            </li>
+                                                    <li id="m006"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="006.html">Backtrace</a>
+                            </li>
+                                                    <li id="m073"
+                                class="menuitem"
+                            ><a class="nav_menu"
+                                href="073.html">SensitiveParameter</a>
+                            </li>
+                                            </ul>
+                </li>
+                    </ul>
+    </div>
+    <div class="content_column">
+        <div id="question_con" class="question_container">
+                            <h1>Reference comparison</h1>
+<p>What will be the output of the following PHP code?</p><pre class="allow_copy"><code class="language-php">class A
+{
+    public int $i;
+
+    public function __construct(int $i)
+    {
+        $this->i = $i;
+    }
+}
+
+$a = 1;
+$b = 1;
+
+$refA = &$a;
+$refB = &$b;
+
+var_dump($refA == $refB);
+var_dump($refA === $refB);
+
+$a = new A(1);
+$b = new A(1);
+
+$refA = &$a;
+$refB = &$b;
+
+var_dump($refA == $refB);
+var_dump($refA === $refB);</code></pre>
+<a href="" id="open-drawer" data-opened="0">Solution</a>
+<div class="tags-wrap" style="display: none;">
+    <pre><code class="language-plaintext nohljsln">bool(true)
+bool(true)
+bool(true)
+bool(false)</code></pre>
+        </div>
+
+                <div class="spacer"></div>
+<div class="nav-bar">
+            <a class="nav-arrow-left" href="056.html">&laquo;</a><!--
+        --><span class="nav-info">Question 51/55</span><!--
+            --><a class="nav-arrow-right" href="068.html">&raquo;</a>
+    </div>
+                    </div>
+    </div>
+</div>
+<script src="index.bundle.js" defer></script>
+</body>
+</html>
