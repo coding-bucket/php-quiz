@@ -27,4 +27,4 @@ Visit [online][1].
 - Run `composer create:static` to create/update the static HTML files in the `docs` folder.
 - Run `composer serve:static` to point your local server to the `docs` folder.
 
-[1]: https://code-bucket.github.io/phpquiz
+[1]: https://coding-bucket.github.io/php-quiz/
